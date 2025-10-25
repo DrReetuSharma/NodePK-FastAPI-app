@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NodePK Documentation</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>NodePK: Neural ODE PK App Documentation</h1>
+    <h2>Overview</h2>
+    <p>This app predicts drug concentration-time profiles for patients using a Neural ODE-based pharmacokinetic model. It also calculates PK metrics and visualizes variability across patients.</p>
+    
+    <h2>Input CSV File Format</h2>
+    <p>The CSV file must contain the following columns:</p>
+    <table border="1">
+        <tr>
+            <th>Column</th>
+            <th>Description</th>
+            <th>Example</th>
+            <th>Unit</th>
+        </tr>
+        <tr>
+            <td>PatientID</td>
+            <td>Unique identifier for each patient/subject.</td>
+            <td>P001</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Time</td>
+            <td>Time point when the drug concentration was observed.</td>
+            <td>0, 0.5, 1, 2...</td>
+            <td>hours (h)</td>
+        </tr>
+        <tr>
+            <td>Dose</td>
+            <td>Amount of drug administered to the patient at time 0. In this study, all patients can have the same dose to assess variability in response.</td>
+            <td>100</td>
+            <td>mg (milligrams)</td>
+        </tr>
+        <tr>
+            <td>Observed</td>
+            <td>Measured drug concentration in the patient's plasma at the corresponding time point. Used to assess variability and compare against model predictions.</td>
+            <td>88.2</td>
+            <td>ng/mL (nanograms per milliliter)</td>
+        </tr>
+    </table>
+
+    <h2>Output Metrics</h2>
+    <p>The app calculates the following pharmacokinetic metrics:</p>
+    <table border="1">
+        <tr>
+            <th>Metric</th>
+            <th>Description</th>
+            <th>Unit</th>
+        </tr>
+        <tr>
+            <td>Cmax</td>
+            <td>Maximum predicted plasma concentration after dose.</td>
+            <td>ng/mL</td>
+        </tr>
+        <tr>
+            <td>Tmax</td>
+            <td>Time at which Cmax occurs.</td>
+            <td>hours (h)</td>
+        </tr>
+        <tr>
+            <td>AUC</td>
+            <td>Area under the concentration-time curve, representing overall drug exposure.</td>
+            <td>ng·h/mL</td>
+        </tr>
+        <tr>
+            <td>HalfLife</td>
+            <td>Elimination half-life: time required for plasma concentration to reduce by half.</td>
+            <td>hours (h)</td>
+        </tr>
+        <tr>
+            <td>Clearance</td>
+            <td>Apparent drug clearance from plasma (volume of plasma cleared per unit time).</td>
+            <td>L/h</td>
+        </tr>
+    </table>
+
+    <h2>Graph</h2>
+    <p>The app generates a graph of <strong>log(concentration) vs. time</strong> for each patient, allowing you to visualize pharmacokinetic profiles and inter-individual variability.</p>
+
+    
+    <p>
+            If you have any questions or encounter issues, feel free to reach out:
+            <br><strong>Email:</strong> <a href="mailto:sharmar@aspire10x.com">sharmar@aspire10x.com</a>
+        </p>
+
+        <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+</body>
+</html>
+</body>
+</html>

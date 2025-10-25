@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NodePK: Neural ODE PK App</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>NodePK</h1>
+    <h2>NodePK: Neural ODE Pharmacokinetic Analyzer</h2>
+  </header>
+
+  <main>
+    <section class="info-section">
+      <h3>About NodePK</h3>
+      <p>
+        <strong>NodePK</strong> is an interactive pharmacokinetic (PK) analysis app powered by
+        <em>Neural Ordinary Differential Equations (Neural ODEs)</em> and built with <b>FastAPI</b>.
+        Upload your plasma concentration–time data to visualize and compare observed vs. predicted
+        concentration profiles across patients.
+      </p>
+      <ul>
+        <li>📊 Upload PK dataset (CSV)</li>
+        <li>⚙️ Model predictions & residuals computed automatically</li>
+        <li>📈 Interactive Plotly graphs for concentration–time profiles</li>
+        <li>💾 Download result tables for analysis</li>
+      </ul>
+    </section>
+
+    <section class="upload-section">
+      <h3>Upload PK Data</h3>
+      <p class="subtext">Required columns: <code>PatientID, Time, Observed, Dose</code></p>
+      <form method="post" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload & Predict</button>
+      </form>
+    </section>
+
+    {% if graph_html %}
+    <section class="graph-section">
+      <h3>Concentration–Time Profile</h3>
+      <div class="plot-container">
+        {{ graph_html | safe }}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if table_rows %}
+    <section class="results-section">
+      <h3>Prediction Summary</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>PatientID</th>
+              <th>Time (h)</th>
+              <th>Observed</th>
+              <th>Predicted</th>
+              <th>Residual (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in table_rows %}
+            <tr>
+              <td>{{ row["PatientID"] }}</td>
+              <td>{{ row["Time"] }}</td>
+              <td>{{ row["Observed"] }}</td>
+              <td>{{ row["Predicted"] }}</td>
+              <td>{{ row["Residual (%)"] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="download-section">
+        <a href="/download" download>📥 Download Results (CSV)</a>
+      </div>
+    </section>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>© 2025 NodePK | Powered by FastAPI & Plotly</p>
+  </footer>
+</body>
+</html>

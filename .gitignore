@@ -1,0 +1,77 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---- Virtual environments ----
+venv/
+env/
+ENV/
+.venv/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+*.egg
+build/
+dist/
+
+# ---- Jupyter / IPython ----
+.ipynb_checkpoints/
+
+# ---- Cache / Temp ----
+.cache/
+.pytest_cache/
+*.tmp
+*.log
+
+# ---- Environment / credentials ----
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+
+# ---- IDEs / Editors ----
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ---- Docker ----
+*.pid
+*.tar
+docker-compose.override.yml
+.dockerignore
+
+# ---- OS Files ----
+Thumbs.db
+.DS_Store
+
+# ---- Project-specific ----
+static/prediction_results.csv
+__results__/
+outputs/
+data/
+*.csv
+*.xlsx
+*.pkl
+*.h5
+
+# ---- GitHub / Cloud ----
+# Ignore any build artifacts
+.cloud/
+.gcloud/
+node_modules/

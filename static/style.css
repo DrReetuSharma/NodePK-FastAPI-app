@@ -1,0 +1,132 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Central container */
+.container {
+  width: 90%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 40px;
+}
+
+/* Header */
+header {
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #1e3a8a;
+  margin-bottom: 6px;
+}
+
+header h2 {
+  font-size: 1.1em;
+  color: #555;
+  font-weight: normal;
+}
+
+/* Sections */
+section {
+  margin: 25px 0;
+}
+
+.info-section p {
+  line-height: 1.6;
+  font-size: 1em;
+  color: #333;
+}
+
+/* Upload form */
+.upload-section input[type="file"] {
+  margin: 12px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.upload-section button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.upload-section button:hover {
+  background-color: #1e40af;
+}
+
+/* Graph section */
+.plot-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Table section */
+.table-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+}
+
+th {
+  background-color: #e5e7eb;
+  color: #111;
+}
+
+/* Download link */
+.download-section a {
+  display: inline-block;
+  background-color: #059669;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.download-section a:hover {
+  background-color: #047857;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #555;
+}
